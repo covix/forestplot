@@ -699,23 +699,23 @@ def draw_tablelines(
     (x0, _), (x1, _) = ax.transData.inverted().transform(bbox_disp)
     upper_lw, lower_lw = 2, 1.3
     nrows = len(dataframe)
-    plt.plot(
+    ax.plot(
         [x0, x1], [nrows - 0.4, nrows - 0.4], color="0", linewidth=upper_lw, clip_on=False
     )
-    plt.plot(
+    ax.plot(
         [x0, x1], [nrows - 1.45, nrows - 1.45], color="0.5", linewidth=lower_lw, clip_on=False
     )
     if (right_annoteheaders is not None) or (pval is not None):
         extrapad = kwargs.get("extrapad", 0.05)
         x0 = ax.get_xlim()[1] * (1 + extrapad)
-        plt.plot(
+        ax.plot(
             [x0, righttext_width],
             [nrows - 0.4, nrows - 0.4],
             color="0",
             linewidth=upper_lw,
             clip_on=False,
         )
-        plt.plot(
+        ax.plot(
             [x0, righttext_width],
             [nrows - 1.45, nrows - 1.45],
             color=".5",
